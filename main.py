@@ -62,6 +62,6 @@ if response.status_code == 200:
             f.write("\n")
 
 else:
-    print(f"Erreur lors de la récupération de la page: {response.status_code}")
+    print(f"Erreur lors de la récupération de la page code : {response.status_code}")
     
     
