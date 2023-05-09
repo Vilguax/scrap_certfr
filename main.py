@@ -63,5 +63,3 @@ if response.status_code == 200:
 
 else:
     print(f"Erreur lors de la récupération de la page : {response.status_code}")
-    
-    
