@@ -1,7 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
+import urllib.parse
 
 url = "https://www.cert.ssi.gouv.fr/avis/CERTFR-2023-AVI-0352/"
+
+parsed_url = urllib.parse.urlparse(url)
+path_elements = parsed_url.path.strip('/').split('/')
+name = path_elements[-1]
 
 response = requests.get(url)
 
@@ -48,7 +53,7 @@ if response.status_code == 200:
             print(f"  {value}")
         print()
     
-    with open("scrap_certfr/result.txt", "w") as f:
+    with open(f"{name}.txt", "w") as f:
         for key, value in info.items():
             f.write(f"{key}: {value}\n")
         f.write("----\n")
